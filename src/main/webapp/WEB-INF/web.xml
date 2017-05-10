@@ -3,15 +3,35 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>TestServlet</servlet-name>
-  	<display-name>TestServlet</display-name>
-  	<description>Test JPA Servlet</description>
-  	<servlet-class>web.TestServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>TestServlet</servlet-name>
-  	<url-pattern>/TestServlet</url-pattern>
-  </servlet-mapping>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<display-name>TestServlet</display-name>
+		<description>Test JPA Servlet</description>
+		<servlet-class>web.TestServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>OData</servlet-name>
+		<servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>org.apache.olingo.odata2.core.rest.app.ODataApplication</param-value>
+		</init-param>
+		<init-param>
+			<param-name>org.apache.olingo.odata2.service.factory</param-name>
+			<param-value>web.ODataJPAServiceFactoryImpl</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/TestServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>OData</servlet-name>
+		<url-pattern>/OData.svc/*</url-pattern>
+	</servlet-mapping>
+
 </web-app>

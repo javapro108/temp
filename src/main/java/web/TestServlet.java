@@ -46,6 +46,7 @@ public class TestServlet extends HttpServlet {
 		ObjectAddressKey addressKey = new ObjectAddressKey();		
 		addressKey.setObjectId(1);
 		addressKey.setObjectType("COMPANY");
+		addressKey.setAddrType("HOME");
 		objectAddress.setAddressKey(addressKey);
 		objectAddress.setFirstName("Test First Name 1");
 		objectAddress.setLastName("Test Last Name 1");
@@ -55,6 +56,7 @@ public class TestServlet extends HttpServlet {
 		addressKey = new ObjectAddressKey();
 		addressKey.setObjectId(2);
 		addressKey.setObjectType("COMPANY");
+		addressKey.setAddrType("HOME");
 		objectAddress.setAddressKey(addressKey);
 		objectAddress.setFirstName("Test First Name 2");
 		objectAddress.setLastName("Test Last Name 2");
@@ -63,6 +65,7 @@ public class TestServlet extends HttpServlet {
 		objectAddress = new ObjectAddress(); 
 		addressKey = new ObjectAddressKey();
 		addressKey.setObjectId(3);
+		addressKey.setAddrType("HOME");
 		addressKey.setObjectType("COMPANY");
 		objectAddress.setAddressKey(addressKey);
 		objectAddress.setFirstName("Test First Name 3");
