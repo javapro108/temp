@@ -38,38 +38,41 @@ public class TestServlet extends HttpServlet {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
 		EntityManager em = emf.createEntityManager();
 		
-		ObjectAddress objectAddress = new ObjectAddress(); 
-		
-		ObjectAddressKey addressKey = new ObjectAddressKey();
 
 		em.getTransaction().begin();
 		
+
+		ObjectAddress objectAddress = new ObjectAddress(); 
+		ObjectAddressKey addressKey = new ObjectAddressKey();		
 		addressKey.setObjectId(1);
 		addressKey.setObjectType("COMPANY");
 		objectAddress.setAddressKey(addressKey);
-		objectAddress.setFirstName("Tejas");
-		objectAddress.setLastName("Patel");
+		objectAddress.setFirstName("Test First Name 1");
+		objectAddress.setLastName("Test Last Name 1");
 		em.persist(objectAddress);
 		
-		
+		objectAddress = new ObjectAddress(); 
+		addressKey = new ObjectAddressKey();
 		addressKey.setObjectId(2);
 		addressKey.setObjectType("COMPANY");
 		objectAddress.setAddressKey(addressKey);
-		objectAddress.setFirstName("Ripal");
-		objectAddress.setLastName("Patel");
+		objectAddress.setFirstName("Test First Name 2");
+		objectAddress.setLastName("Test Last Name 2");
 		em.persist(objectAddress);
 		
+		objectAddress = new ObjectAddress(); 
+		addressKey = new ObjectAddressKey();
 		addressKey.setObjectId(3);
 		addressKey.setObjectType("COMPANY");
 		objectAddress.setAddressKey(addressKey);
-		objectAddress.setFirstName("Dhaval");
-		objectAddress.setLastName("Patel");			
+		objectAddress.setFirstName("Test First Name 3");
+		objectAddress.setLastName("Test Last Name 3");
 		em.persist(objectAddress);
 		
 		em.getTransaction().commit();
 		
 		
-		Query query = em.createQuery( "Select e " + "from OBJECTADDRESS e " );
+		Query query = em.createQuery( "Select e from ObjectAddress e" );
 	      
 	    List<ObjectAddress> objectAddressList = (List<ObjectAddress>)query.getResultList( );
 		
