@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+	<style>
+		
+		* {
+			box-sizing: border-box;
+		}
+		
+		html, body {
+			height: 100%;
+			margin: 0;
+			margin: 0;
+		}
+		
+		.container {
+			display: flex;
+			flex-flow: column;
+			height: 100%;
+			border: 2px solid #f76707;
+		}
+		
+		.header {
+			border: 2px solid green;
+			flex: 0 1 auto;
+		}		
+		
+		.main-content {
+			border: 2px solid blue;
+			flex: 1 1 auto;
+			display: flex;
+			flex-flow: row;
+		}	
+		
+		.side-nav {
+			width: 250px;
+			flex: 0 1 auto;
+			overflow-y: auto;
+			overflow-x: hidden;
+			border: 2px solid red;
+			transition: 1s;
+		}
+		
+		.content-area {
+			flex: 1 1 auto;
+			overflow-y: auto;
+			border: 2px solid orange;
+		}
+		
+		.footer {
+			border: 2px solid purple;
+			flex: 0 1 auto;
+		}	
+		
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<button onclick="toggleSideNav(event)">Side Nav</button>
+			<text>Header Title</text>
+		</div>
+		<div class="main-content">
+			<div class="side-nav">				
+				<nav class="nav-bar">
+					<h3>Sidebar</h3>
+					</ul>
+				</nav>								
+			</div>
+			<div class="content-area">
+				<div class="container">
+					<div class="header">
+						<button onclick="toggleSideNav(event)">Side Nav</button>
+						<text>Header Title</text>
+					</div>
+					<div class="main-content">
+						<div id="side-nav" class="side-nav">				
+							<nav class="nav-bar">
+								<h3>Sidebar</h3>
+							</nav>								
+						</div>
+						<div class="content-area">
+							<div class="container">
+							</div>			
+						</div>
+					</div>
+					<div class="footer">
+						Footer
+					</div>			
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			Footer
+		</div>
+	</div>
+	
+	<script>
+		var sideNavDisplay = true;
+		function toggleSideNav(e){
+			if ( sideNavDisplay == true ) {
+				sideNavDisplay = false;
+				document.getElementById("side-nav").style.width = '0px';
+			} else {
+				sideNavDisplay = true;
+				document.getElementById("side-nav").style.width = '250px';
+			}
+		}
+	</script>
+</body>
